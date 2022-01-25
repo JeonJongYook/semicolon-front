@@ -29,7 +29,5 @@ Vue.js Version : 3.0
 ```
 
 ### 참고자료
-[Configuration Reference](https://cli.vuejs.org/config/)
-
-[Configuration Reference](https://cli.vuejs.org/config/).
+[설정 참고 문서](https://cli.vuejs.org/config/)
 
