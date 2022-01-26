@@ -3,26 +3,31 @@
     <h1>
       세미콜론 커뮤니티에 오신 여러분을 환영합니다!<br>
     </h1>
+    <div v-if="user.isLogin">{{user.userNickname}}({{user.userName}})님, <span v-html="user.greetingHtml"></span></div>
+    <div v-else>다양한 서비스를 즐기기 위해 회원가입을 진행해주세요.</div>
 
     <form
         id="Signupapp"
-        @submit="submitForm"
+        @submit="SignUpForm"
         method="post">
       <br>
       <div>
         <label for="email" id="email">이메일(Email) </label>
-        <input type="text" ref="emailinput"/> @ <input type="text" name="e_domain">
+        <input type="text" ref="email_Id"/> @ <input type="text" ref="email_Domain">
         &nbsp;
-        <email-form-input id="email" v-model="email" type="email" :state="emailValidation">
-          <select name="emaildomain" onchange="emaildomainCheck();" v-model="selected">
-            <option disabled value = "">이메일을 선택해주세요</option>
-            <option value = "직접입력">직접입력</option>
-            <option value = "naver.com">naver.com</option>
-            <option value = "kakao.com">kakao.com</option>
-            <option value = "gmail.com">gmail.com</option>
-            <option value = "hanmail.net">hanmail.net</option>
-          </select>
-        </email-form-input>
+<!--        <email-form-input id="email" type="email">-->
+<!--          <select name="emaildomain" @change="emaildomainCheck">-->
+<!--            <option disabled value = "">이메일을 선택해주세요</option>-->
+<!--            <option value = "직접입력" >직접입력</option>-->
+<!--            <option value = "naver.com" >naver.com</option>-->
+<!--            <option value = "kakao.com" >kakao.com</option>-->
+<!--            <option value = "gmail.com" >gmail.com</option>-->
+<!--            <option value = "hanmail.net" >hanmail.net</option>-->
+<!--          </select>-->
+<!--        </email-form-input>-->
+        <v-text-field class="pl-3 pr-3" :rules="emailRulesCheck" required v-model="signup.email"
+                      label="E-mail" type="email" prepend-icon="mdi-email">
+        </v-text-field>
       </div>
       <br>
       <div>
@@ -41,7 +46,7 @@
       </div>
       <br>
       <br>
-      <button type="submit">회원가입 </button>
+      <button type="button" @click="SubmitButtonClick">회원가입 </button>
     </form>
   </div>
 </template>
@@ -52,11 +57,15 @@ export default {
   name: 'SignupForm',
   data() {
     return {
-      email: {
+      user: {
+        userNickname: 'JeonJongYook#1352',
+        userName: '종욱',
+        greetingHtml : '<span style="color:#0a45c7">안녕하세요.</span>',
+        isLogin : false
       },
       signup: {
-        emailId: '',
-        emaildomain: '',
+        email_Id: '',
+        email_Domain: '',
         nickname: '',
         password: '',
         passwordConfirm: ''
@@ -69,21 +78,15 @@ export default {
     };
   },
   methods: {
-    goLoginPage() {
-      var email = this.$refs.emailinput.value;
-      var password = this.$refs.password.value;
-      var passwordConfirm = this.$refs.passwordConfirm.value;
-      axios.post('/login', {
-        emailId: email,
-        password: password,
-        passwordConfirm: passwordConfirm
-      });
+    clearEmail() {
+      this.signup.email_Id = '';
+      this.signup.email_Domain = '';
     },
+    emailRulesCheck: {
+
+    }
   },
   computed: {
-    emailValidation: function() {
-      return this.signup.email.length > 10 ? `` : `이메일은 10자 이상 입력해주세요!`;
-    }
   }
 };
 </script>
