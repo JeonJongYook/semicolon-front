@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+<<<<<<< HEAD
     "vue": "^3.0.0"
   },
   "devDependencies": {
@@ -24,6 +25,21 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0"
+=======
+    "vue": "^3.0.0",
+    "vue-form-error": "^1.0.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0-rc.2",
+    "@vue/cli-plugin-eslint": "^4.5.15",
+    "@vue/cli-service": "^3.3.1",
+    "@vue/compiler-sfc": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^7.20.0"
+>>>>>>> 1968d7ef8bba78886d6719ad3bfe6b930ff658e2
   },
   "eslintConfig": {
     "root": true,
@@ -32,7 +48,11 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
+<<<<<<< HEAD
       "@vue/standard"
+=======
+      "eslint:recommended"
+>>>>>>> 1968d7ef8bba78886d6719ad3bfe6b930ff658e2
     ],
     "parserOptions": {
       "parser": "babel-eslint"

@@ -4,7 +4,11 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import HelloWorld from './components/HelloWorld.vue'
+=======
+import HelloWorld from './components/common/SignUp.vue'
+>>>>>>> 1968d7ef8bba78886d6719ad3bfe6b930ff658e2
 
 export default {
   name: 'App',
