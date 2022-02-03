@@ -1,4 +1,3 @@
-/* eslint-disable */
 <template>
   <div class="hello">
     <h1>
@@ -11,18 +10,16 @@
         <br>
         <div>
           <label for="email_label" id="email_label">이메일(Email) </label>
-          <input type="text" ref="email_Id"/> @ <input type="text" ref="email_Domain">
-          &nbsp;
-          <email_input type="email" id="email_input">
-            <select name="email_Domain" @change="emailRulesCheck" v-model="email.emailChoice">
-              <option disabled value = "직접 입력">본인의 이메일을 선택해주세요</option>
-              <option value = "" >직접입력</option>
-              <option :value = "{email: 'naver.com'}">naver.com</option>
-              <option :value = "{email: 'kakao.com'}">kakao.com</option>
-              <option :value = "{email: 'gmail.com'}">gmail.com</option>
-              <option :value = "{email: 'hanmail.net'}">hanmail.net</option>
-            </select>
-          </email_input>
+          <input type="text" ref="email_Id"/> @ <input type="text" ref="email_Domain"/>
+            <input type="email" id="email_input">
+              <select name="email_Domain" @change="emailRulesCheck" v-model="email.emailChoice">
+                <option disabled value = "직접 입력">본인의 이메일을 선택해주세요</option>
+                <option value = "" >직접입력</option>
+                <option :value = "{email: 'naver.com'}">naver.com</option>
+                <option :value = "{email: 'kakao.com'}">kakao.com</option>
+                <option :value = "{email: 'gmail.com'}">gmail.com</option>
+                <option :value = "{email: 'hanmail.net'}">hanmail.net</option>
+              </select>
         </div>
         <br>
         <div>

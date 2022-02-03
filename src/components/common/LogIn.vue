@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import Login from './components/common/LogIn.vue';
 
 export default {
   name: 'App',
